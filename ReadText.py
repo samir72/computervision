@@ -36,7 +36,7 @@ def main():
         k = 0
         for i in images:
             # Analyse the images.
-            print(f"Read text : {files[k]}")            
+            print(f"\nRead text : {files[k]}")            
             result = analyse_image(client,images[k])
             # Print the text
             if result.read is not None:
@@ -44,9 +44,21 @@ def main():
     
                  for line in result.read.blocks[0].lines:
                      print(f" {line.text}")        
-                    # Annotate the text in the image
-            annotate_lines(files[k],result.read)
-
+            # Annotate the text in the image
+            # Check it annotation is complete.
+            l=0
+            for i in files:
+                fileinplace = f"{files[k]}-lines.jpg"
+                filetobechecked = files[l]
+                if fileinplace == filetobechecked:
+                    print(f"{files[k]}...has been annotated")
+                    break
+                else:
+                    l += 1                    
+                # Annotate the lines of text in the image
+                if  l > len(files):
+                    print(f"Annotating lines of text in {files[k]}...")
+                    annotate_lines(files[k],result.read)
                  # Find individual words in each line
             
             k += 1
