@@ -59,7 +59,6 @@ def main():
                 if  l > len(files):
                     print(f"Annotating lines of text in {files[k]}...")
                     annotate_lines(files[k],result.read)
-                 # Find individual words in each line
             
             k += 1
         
@@ -161,7 +160,6 @@ def annotate_lines(file,detected_text):
 
         # Convert image to numpy array for displaying with matplotlib
         image_np = np.array(image)
-
         # Display the image with annotations
         plt.imshow(image_np)
         plt.tight_layout(pad=0)
