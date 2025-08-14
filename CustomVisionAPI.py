@@ -148,6 +148,8 @@ def Upload_Images(folder, training_client, custom_vision_project):
             image_data = open(os.path.join(folder,tag.name,image), "rb").read()
             training_client.create_images_from_data(custom_vision_project.id, image_data, [tag.id])
 
+
+
 def Train_Model(training_client, custom_vision_project,prediction_endpoint, prediction_key, projectId, model_name_code):
     try:
 
