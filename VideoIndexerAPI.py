@@ -8,6 +8,8 @@ def main():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     try:
+        # Get configuration settings 
+        load_dotenv()
         account_id = os.getenv("VideoIndexerAccountId")
         api_key = os.getenv("VideoIndexerKey")
         location = os.getenv("LOCATION", "trial")  # Default to trial if not set
